@@ -38,12 +38,39 @@ To show the consequences of OTP reuse, the program:
 
 
 
+---
 
-
-
+## **Original Images (600×600)**
 
 | Original Image 1 | Original Image 2 | Original Image 3 |
 |------------------|------------------|------------------|
-| ![Original 1](input/brot.png) | ![Original 2](input/pengu.png) | ![Original 3](input/image3.png) |
+| ![Original 1](input/brot.png) | ![Original 2](input/pengu.png) | ![Original 3](input/cody.png) |
+
+---
+## **Encrypted Images (Using the Same OTP)**
+
+Although encryption with a One-Time Pad produces perfect secrecy *when used correctly*,  
+reusing the same key causes all images to be encrypted with identical keystreams.
+
+| Encrypted 1 | Encrypted 2 | Encrypted 3 |
+|-------------|-------------|-------------|
+| ![Enc 1](enc/encrypted_0.png) | ![Enc 2](enc/encrypted_1.png) | ![Enc 3](enc/encrypted_2.png) |
+
+*(They appear as random noise — nothing can be learned from these alone.)*
+
+---
 
 
+## **XORing Encrypted Images (The Critical Failure)**
+
+Because the **same OTP was reused**, XORing the ciphertexts removes the key and exposes structure from the original images.
+
+| Image1 ⊕ Image2 | Image1 ⊕ Image3 | Image2 ⊕ Image3 |
+|------------------|------------------|------------------|
+| ![1 XOR 2](out/out0.png) | ![1 XOR 3](out/out1.png) | ![2 XOR 3](out/out2.png) |
+
+These outputs reveal edges, shapes, and visual patterns — demonstrating that OTP reuse completely destroys security.
+
+---
+
+## **Conclusion**
