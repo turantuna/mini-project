@@ -33,5 +33,17 @@ To show the consequences of OTP reuse, the program:
 2. XORs **every possible image pair**  
 3. Saves the results into the `out/` folder  
 
-Because both images were encrypted with the **same OTP**, XORing the ciphertexts removes the key:
+
+
+
+
+
+
+
+
+
+| Original Image 1 | Original Image 2 | Original Image 3 |
+|------------------|------------------|------------------|
+| ![Original 1](input/brot.png) | ![Original 2](input/pengu.png) | ![Original 3](input/image3.png) |
+
 
