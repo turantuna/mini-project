@@ -51,9 +51,9 @@ To show the consequences of OTP reuse, the program:
 
 | Encrypted 1 | Encrypted 2 | Encrypted 3 |
 |-------------|-------------|-------------|
-| ![Enc 1](enc/encrypted_0.png) | ![Enc 2](enc/encrypted_1.png) | ![Enc 3](enc/encrypted_2.png) |
+| ![Enc 1](enc/encrypted_0.png) | ![Enc 2](enc/encrypted_2.png) | ![Enc 3](enc/encrypted_1.png) |
 
-*(They appear as random noise — nothing can be learned from these alone.)*
+*(They appear as random noise nothing can be learned from these alone.)*
 
 ---
 
@@ -66,7 +66,7 @@ Because the **same OTP was reused**, XORing the ciphertexts exposes structure fr
 |------------------|------------------|------------------|
 | ![1 XOR 2](out/out1.png) | ![1 XOR 3](out/out0.png) | ![2 XOR 3](out/out2.png) |
 
-These outputs reveal edges, shapes, and visual patterns — demonstrating that OTP reuse completely destroys security.
+These outputs reveal edges, shapes, and visual patterns demonstrating that OTP reuse completely destroys security.
 
 ---
 
