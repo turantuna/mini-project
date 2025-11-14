@@ -67,7 +67,7 @@ Because the **same OTP was reused**, XORing the ciphertexts removes the key and 
 
 | Image1 ⊕ Image2 | Image1 ⊕ Image3 | Image2 ⊕ Image3 |
 |------------------|------------------|------------------|
-| ![1 XOR 2](out/out0.png) | ![1 XOR 3](out/out1.png) | ![2 XOR 3](out/out2.png) |
+| ![1 XOR 2](out/out0.png) | ![1 XOR 3](out/out2.png) | ![2 XOR 3](out/out1.png) |
 
 These outputs reveal edges, shapes, and visual patterns — demonstrating that OTP reuse completely destroys security.
 
