@@ -17,14 +17,8 @@ image_paths = glob.glob("input/*.png")
 for ip in image_paths:
     list_img.append(Image.open(ip).convert("RGBA"))
 
-
-
-
-
-
-
 for i in list_img:
-    print(i.size,key.size)
+    
     # Ensure images and key are the same size
     if i.size != key.size:
         
