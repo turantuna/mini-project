@@ -1,21 +1,27 @@
 from PIL import Image
 import numpy as np
 from random_key import generate_key
-
-name_list= ["pengu","brot"]
-original_1 = f"img/{name_list[0]}.png"
-original_2 = f"img/{name_list[1]}.png"
+import glob
+from itertools import combinations
 
 #random noise
 key = generate_key(600,600)
 arr_key= np.array(key)
-# Pengu and Brot are opened
-img1 = Image.open(original_1).convert("RGBA")
-img2 = Image.open(original_2).convert("RGBA")
 
-list_img =[img1,img2]
+list_img =[]
 list_arr = []
 list_out_img = []
+
+# Get all PNGs
+image_paths = glob.glob("input/*.png")
+for ip in image_paths:
+    list_img.append(Image.open(ip).convert("RGBA"))
+
+
+
+
+
+
 
 for i in list_img:
     print(i.size,key.size)
@@ -43,19 +49,16 @@ for a in list_arr:
 for i,o in enumerate(list_out_img):
 
     #save the encrypted images
-    o.save(f"img/encrypted_{name_list[i]}.png")
+    o.save(f"enc/encrypted_{i}.png")
     #update the arrlist with the encrypted images
     list_arr[i] = np.array(o)
+i = 0
+for a,b in combinations(list_arr,2):
 
-result = list_arr[0]
-for i in range(1,len(list_arr)):
-    # XOR RGB channels of each encrypted image_array with eachother
-    
-    result[:, :, :3] = np.bitwise_xor(list_arr[i][:, :, :3], result[:, :, :3])
-
+    result[:, :, :3] = np.bitwise_xor(a[:, :, :3], b[:, :, :3])
     # Make fully opaque
     result[:, :, 3] = 255
-    
-# Convert back to image
-result_image = Image.fromarray(result, "RGBA")
-result_image.save("img/out.png")
+    result_image = Image.fromarray(result, "RGBA")
+    result_image.save(f"out/out{i}.png")
+    i += 1
+
